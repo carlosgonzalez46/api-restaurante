@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @Entity
 @Table(name = "empleado")
 @Getter
@@ -25,5 +27,6 @@ public class Empleado {
     private String rolEmpleado;
     @Column(name = "emp_estado")
     private String estadoEmpleado;
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "empleado")
+    private ArrayList<Pedido> empleadoPedidos = new ArrayList<>();
 }

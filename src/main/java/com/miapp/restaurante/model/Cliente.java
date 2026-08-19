@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @Entity
 @Table(name = "cliente")
 @Getter
@@ -15,7 +17,7 @@ import lombok.Setter;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente", nullable = true)
+    @Column(name = "id_cliente")
     private Long idCliente;
     @Column(name = "cli_nombre", nullable = false)
     private String nombreCliente;
@@ -23,4 +25,6 @@ public class Cliente {
     private String correoElectronico;
     @Column(name = "cli_direccion", nullable = false)
     private String direccion;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
+    private ArrayList<Pedido> clientePedidos = new ArrayList<>();
 }
