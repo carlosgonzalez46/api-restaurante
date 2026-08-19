@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "ingrediente")
 @Getter
@@ -25,4 +28,6 @@ public class Ingrediente {
     private int stockMinimo;
     @Column(name = "unidad_medida", nullable = false)
     private String unidadMedida;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ingrediente")
+    private List<Receta> ingredienteRecetas = new ArrayList<>();
 }

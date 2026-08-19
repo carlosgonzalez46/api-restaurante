@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "platillo")
 @Getter
@@ -23,4 +26,6 @@ public class Platillo {
     private String descripcion;
     @Column(name = "precio", nullable = false)
     private Double precio;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "platillo")
+    private List<Receta> platilloRecetas = new ArrayList<>();
 }
