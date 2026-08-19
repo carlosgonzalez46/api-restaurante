@@ -25,7 +25,9 @@ public class Platillo {
     @Column(name = "descripcion", nullable = true)
     private String descripcion;
     @Column(name = "precio", nullable = false)
-    private Double precio;
+    private Long precio;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "platillo")
     private List<Receta> platilloRecetas = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "platillo_detalle")
+    private List<DetallePedido> platilloDetalles = new ArrayList<>();
 }

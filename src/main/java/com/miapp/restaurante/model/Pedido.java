@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "pedido")
@@ -24,11 +25,13 @@ public class Pedido {
     @Column(name = "estado")
     private String estadoPedido;
     @Column(name = "total", nullable = false)
-    private Double totalPedido;
+    private Long totalPedido;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedido")
+    private ArrayList<DetallePedido> pedidoDetalles = new ArrayList<>();
 }
