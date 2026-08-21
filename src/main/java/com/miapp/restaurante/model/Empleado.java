@@ -21,12 +21,12 @@ public class Empleado {
     private Long idEmpleado;
     @Column(name = "emp_nombre", nullable = false)
     private String nombreEmpleado;
-    @Column(name = "emp_telefono")
+    @Column(name = "emp_telefono", nullable = false)
     private String telefonoEmpleado;
     @Column(name = "emp_rol", nullable = false)
     private String rolEmpleado;
-    @Column(name = "emp_estado")
-    private String estadoEmpleado;
+    @Column(name = "emp_salario", nullable = false)
+    private Long salarioEmpleado;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "empleado")
     private ArrayList<Pedido> empleadoPedidos = new ArrayList<>();
 }
