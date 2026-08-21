@@ -4,7 +4,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ActualizarEmpleadoDto {
     @NotBlank(message = "Campo nombre de empleado es obligatorio")
     @Size(max = 70, message = "Maximo de 70 caracteres permitido")
