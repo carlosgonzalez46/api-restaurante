@@ -2,7 +2,13 @@ package com.miapp.restaurante.model.dto;
 
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class CrearEmpleadoDto {
     @NotBlank(message = "Campo nombre de empleado es obligatorio")
     @Size(max = 70, message = "Maximo de 70 caracteres permitido")
