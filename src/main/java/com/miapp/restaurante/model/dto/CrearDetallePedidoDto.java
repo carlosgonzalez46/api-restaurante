@@ -1,6 +1,5 @@
 package com.miapp.restaurante.model.dto;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -10,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CrearDetallePedido {
+public class CrearDetallePedidoDto {
     @Positive(message = "La cantidad debe ser mayor a cero")
     @NotNull(message = "El campo cantidad es obligatorio")
     private int cantidad;
